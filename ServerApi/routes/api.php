@@ -26,3 +26,7 @@ Route::get('getCategories','APIProductController@getcategory');
 
 
 Route::get('getTrendingProducts','APIProductController@gettrends');
+
+Route::post('submitDonation','APIDonationController@submit');
+
+Route::get('getCause','APIProductController@getcause');
