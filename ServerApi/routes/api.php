@@ -33,5 +33,5 @@ Route::post('submitDonation','APIDonationController@submit');
 Route::get('getCause','APIProductController@getcause');
 
 Route::get('getProductDetails/{id}','APIProductController@getProductDetails');
-Route::get('placeCustomOrders/{id}','APIProductController@placeCustomOrders');
+Route::post('placeCustomOrders','APIProductController@placeCustomOrders');
 
