@@ -35,8 +35,19 @@ export class DonationComponent implements OnInit {
   donate() {
     console.log(this.donationForm.value);
 
-    const obj = {customer_id: 1, cause_id: this.causeId, amount: this.donationForm.value.amount };
-    this.http.post('http://10.49.148.116:8000/api/submitDonation', obj).subscribe(
+    let details: any={};
+    details.customer_id = 1;
+    // userDetails.mname = data.mname;
+    details.cause_id = 1;
+    details.amount = 100;
+    // userDetails.username = data.username;
+ 
+    this.http.post('http://10.49.148.116:8000/api/submitDonation', details).subscribe(
+
+
+    //const obj = {customer_id: 1, cause_id: this.causeId, amount: this.donationForm.value.amount };
+    //this.http.post('http://10.49.148.116:8000/api/submitDonation', obj).subscribe(
+
 
       res => {
         console.log(res);
