@@ -5,11 +5,30 @@
     </div>
     <div class="col-md-4">
       <div class="card">
-          {{product.name}} <br>
-          {{product.description}} <br>
-          {{product.color}} <br> 
-          {{product.price}} <br>
+        <img src="https://static.thenounproject.com/png/465426-200.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <table class="table">
+            <tr>
+              <th scope="row">Product Name: </th>
+              <td>{{product.name}}</td>
 
+            </tr>
+            <tr>
+                <th scope="row">Product Description: </th>
+              <td>
+                {{product.description}} </td>
+            </tr>
+            <tr>
+                <th scope="row">Product Color: </th>
+              <td>
+                {{product.color}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Product Price: </th>
+              <td> {{product.price}} </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <div class="col-md-4">

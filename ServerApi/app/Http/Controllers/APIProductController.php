@@ -173,6 +173,24 @@ class APIProductController extends Controller
         	$dataModel['error'] = true;
         }
         return new GeneralResources($dataModel);
+	}
+	
+	public function addtocart(Request $request)
+    {
+    	$tocart = new Cart();
+        $tocart ->customer_id = $request->customer_id;
+        $tocart ->product_id= $request->product_id;
+        $result=$tocart ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Insert Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Insert Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
     }
 
 }

@@ -1,10 +1,40 @@
-<div  *ngFor="let product of products">
-  
-        <p> {{ product.name }} </p>
-        <p> {{ product.description }} </p>
-        <p> {{ product.price }}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div *ngFor="let product of products">
+                <div class="media">
+                    <img src="https://static.thenounproject.com/png/465426-200.png">
+                    <div class="media-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p (click)="goToProductDetails(i)"> {{ product.name }} </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p> {{ product.description }} </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p> {{ product.price }}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
 
-  
-    <div class="col-*-*"></div>
-</div>
+                <div class="col-*-*"></div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
