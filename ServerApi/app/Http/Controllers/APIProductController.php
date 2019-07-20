@@ -23,5 +23,22 @@ class APIProductController extends Controller
         	$dataModel['error'] = true;
         }
         return new GeneralResources($dataModel);
+	}
+	
+	function getproduct(){
+    	$product=Product::all();
+    	// print_r($category);
+    	// exit;
+    	$dataModel=[];
+    	if($product){
+        	$dataModel['data'] = $product;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
     }
 }
