@@ -7,7 +7,14 @@
         <input class="input_field" type="text" formControlName="cause" placeholder="Enter Cause">
       </div>
       <br>
-  
+      <div class="form-control form_element">
+        <label class="label" for="Cause">Cause</label>
+        <div *ngFor="let c of cause, let i=index">
+        <input class="input_field" type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}}
+
+        </div>
+      </div>
+      
       <div class="form-control form_element" style="border: none">
         <label class="label" for="amount">Amount</label>
         <br>
