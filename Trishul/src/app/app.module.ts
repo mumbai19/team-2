@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { DonationComponent } from './donation/donation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CustomizeComponent } from './customize/customize.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CatalogComponent,
     ProfileComponent,
     ProductDetailsComponent,
-    CatalogComponent
+    CatalogComponent,
+    CustomizeComponent
   ],
   imports: [
     BrowserModule,
