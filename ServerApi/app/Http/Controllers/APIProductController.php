@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategory;
 use App\Cause;
-
+use App\User;
 use App\CustomProduct;
 use App\Cart;
 use App\Http\Resources\GeneralResources as GeneralResources;
@@ -137,4 +137,42 @@ class APIProductController extends Controller
 		
         return new GeneralResources($dataModel);
 	}
+
+	function getUserProfile($id){
+    	$userprofile=User::find($id);
+    	$dataModel=[];
+    	if($userprofile){
+        	$dataModel['data'] = $userprofile;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+		}
+		
+        return new GeneralResources($dataModel);
+	}
+
+	public function edituserprofile(Request $request, $id)
+    {
+    	$dataModel=[];
+        $profile = User::findOrFail($id);
+        $profile ->name = $request->name;
+		$profile ->priviledge= $request->priviledge;
+		$profile ->phoneno= $request->phoneno;
+		$profile ->email_id= $request->email_id;
+        $result=$profile ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Update Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Update Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+    }
+
 }
