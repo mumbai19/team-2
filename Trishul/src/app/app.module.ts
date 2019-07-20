@@ -7,12 +7,14 @@ import { LandingComponent } from './landing/landing.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DonationComponent } from './donation/donation.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     DonationComponent,
+    ProductDetailsComponent,
     CatalogComponent
   ],
   imports: [
