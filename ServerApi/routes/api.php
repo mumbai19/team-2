@@ -17,5 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('getcategory','APIProductController@getcategory');
-Route::get('getproduct','APIProductController@getcategory');
+
+
+Route::get('getproduct','APIProductController@getproduct');
+
+Route::get('getCategories','APIProductController@getcategory');
+
+
+
+Route::get('getTrendingProducts','APIProductController@gettrends');
