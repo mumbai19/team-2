@@ -26,3 +26,4 @@ Route::get('getCategories','APIProductController@getcategory');
 
 
 Route::get('getTrendingProducts','APIProductController@gettrends');
+Route::get('getProductDetails/{id}','APIProductController@getProductDetails');

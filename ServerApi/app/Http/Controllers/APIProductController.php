@@ -57,5 +57,20 @@ class APIProductController extends Controller
         	$dataModel['error'] = true;
         }
         return new GeneralResources($dataModel);
-    }
+	}
+	
+	function getProductDetails($id){
+		$productDetails=Product::find($id);
+		$dataModel=[];
+    	if($productDetails){
+        	$dataModel['data'] = $productDetails;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+		return new GeneralResources($dataModel);
+	}
 }
