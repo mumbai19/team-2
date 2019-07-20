@@ -35,5 +35,7 @@ Route::get('getCause','APIProductController@getcause');
 Route::get('getProductDetails/{id}','APIProductController@getProductDetails');
 Route::post('placeCustomOrders','APIProductController@placeCustomOrders');
 Route::get('getUserCart/{id}','APIProductController@getUserCart');
+Route::get('getUserProfile/{id}','APIProductController@getUserProfile');
+Route::get('edituserprofile/{id}','APIProductController@edituserprofile');
 
 
