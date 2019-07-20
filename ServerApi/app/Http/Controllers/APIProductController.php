@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategory;
 use App\Cause;
-use App\User;
+
 use App\CustomProduct;
-use App\Cart;
 use App\Http\Resources\GeneralResources as GeneralResources;
 class APIProductController extends Controller
 {
@@ -62,7 +61,7 @@ class APIProductController extends Controller
         }
         return new GeneralResources($dataModel);
 	}
-		
+
 	function getcause(){
     	$cause=Cause::all();
     	// print_r($category);
@@ -86,7 +85,7 @@ class APIProductController extends Controller
 		$productDetails=Product::find($id);
 		$dataModel=[];
     	if($productDetails){
-			$dataModel['data'] = $productDetails;
+        	$dataModel['data'] = $productDetails;
 
         	$dataModel['message'] = "Fetch Successful";
         	$dataModel['error'] = false;
@@ -116,8 +115,82 @@ class APIProductController extends Controller
         	$dataModel['data'] = 0;
         	$dataModel['message'] = "Placing Customized order Unsuccessful";
         	$dataModel['error'] = true;
-		}
+        }
 
         return new GeneralResources($dataModel);
 	}
+
+	function getUserCart($id){
+    	$usercart=Cart::find($id);
+    	$dataModel=[];
+    	if($usercart){
+        	$dataModel['data'] = $usercart;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+		}
+		
+        return new GeneralResources($dataModel);
+	}
+
+	function getUserProfile($id){
+    	$userprofile=User::find($id);
+    	$dataModel=[];
+    	if($userprofile){
+        	$dataModel['data'] = $userprofile;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+		}
+		
+        return new GeneralResources($dataModel);
+	}
+
+	public function edituserprofile(Request $request, $id)
+    {
+    	$dataModel=[];
+        $profile = User::findOrFail($id);
+        $profile ->name = $request->name;
+		$profile ->priviledge= $request->priviledge;
+		$profile ->phoneno= $request->phoneno;
+		$profile ->email_id= $request->email_id;
+        $result=$profile ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Update Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Update Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+	}
+	
+	public function addtocart(Request $request)
+    {
+    	$tocart = new Cart();
+        $tocart ->customer_id = $request->customer_id;
+        $tocart ->product_id= $request->product_id;
+        $result=$tocart ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Insert Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Insert Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+    }
+
+
+	
 }
