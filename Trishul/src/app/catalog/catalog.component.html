@@ -12,17 +12,17 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p> {{ product.name }} </p>
+                                        <p (click)="goToProductDetails(i)"> {{ product.name }} </p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p> {{ product.description }} </p>
+                                        <p> <b>Description: </b> {{ product.description }} </p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p> {{ product.price }}</p>
+                                        <p> <b>Price: </b>Rs. {{ product.price }}</p>
                                     </td>
                                 </tr>
                             </tbody>
