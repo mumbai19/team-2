@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DonationComponent } from './donation/donation.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CustomizeComponent } from './customize/customize.component';
 
 const routes: Routes = [
   {path: 'donations', component: DonationComponent},
   {path: 'product-details', component: ProductDetailsComponent},
   {path: 'landing', component: LandingComponent},
   {path: 'catalog', component: CatalogComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'customize', component: CustomizeComponent}
 ];
 
 @NgModule({
