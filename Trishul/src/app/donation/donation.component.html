@@ -6,13 +6,7 @@
     <div class="col-md-4">
       <form [formGroup]="donationForm">
 
-        <div class="form-group">
-
-          <label class="label" for="Cause">Cause</label>
-          
-          <input class="form-control" type="text" formControlName="cause" placeholder="Enter Cause">
-        </div>
-        
+        <p>Choose Cause</p>
         <div *ngFor="let c of cause, let i=index" class="checkbox">
           <input type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}}
           
