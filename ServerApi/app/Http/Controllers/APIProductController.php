@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategory;
 use App\Cause;
-
+use App\User;
 use App\CustomProduct;
 use App\Cart;
 use App\Http\Resources\GeneralResources as GeneralResources;
@@ -137,4 +137,21 @@ class APIProductController extends Controller
 		
         return new GeneralResources($dataModel);
 	}
+
+	function getUserProfile($id){
+    	$userprofile=User::find($id);
+    	$dataModel=[];
+    	if($userprofile){
+        	$dataModel['data'] = $userprofile;
+        	$dataModel['message'] = "Fetch Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = null;
+        	$dataModel['message'] = "Fetch Unsuccessful";
+        	$dataModel['error'] = true;
+		}
+		
+        return new GeneralResources($dataModel);
+	}
+
 }
