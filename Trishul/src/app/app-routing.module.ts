@@ -9,6 +9,7 @@ import { CustomizeComponent } from './customize/customize.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 
 const routes: Routes = [
+  {path: '', component: LandingComponent},
   {path: 'donations', component: DonationComponent},
   {path: 'product-details', component: ProductDetailsComponent},
   {path: 'landing', component: LandingComponent},
