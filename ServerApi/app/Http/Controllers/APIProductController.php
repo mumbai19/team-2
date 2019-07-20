@@ -122,8 +122,8 @@ class APIProductController extends Controller
 	}
 	
 
-	function getUserCart(){
-    	$usercart=Cart::all();
+	function getUserCart($id){
+    	$usercart=Cart::find($id);
     	$dataModel=[];
     	if($usercart){
         	$dataModel['data'] = $usercart;
