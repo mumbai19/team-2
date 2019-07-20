@@ -9,7 +9,7 @@ import { StaticService } from '../shared/services/static.service';
   providers: [StaticService]
 })
 export class ProductDetailsComponent implements OnInit {
-
+  private details:any={};
   product = {};
   constructor(private http: HttpClient, private ss: StaticService) { }
 
@@ -24,6 +24,9 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart() {
+    this.details.product_id=1;
+    this.details.customer_id=1;
+    this.details.amount=10;
+    this.http.post("http://10.49.148.116:8000/api/addtocart",this.details);
   }
-
 }
