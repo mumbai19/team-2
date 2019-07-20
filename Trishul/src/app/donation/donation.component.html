@@ -13,9 +13,9 @@
           <input class="form-control" type="text" formControlName="cause" placeholder="Enter Cause">
         </div>
         
-        <div *ngFor="let c of cause, let i=index">
-          <input class="form-control" type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}}
-  
+        <div *ngFor="let c of cause, let i=index" class="checkbox">
+          <input type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}}
+          
         </div>
 
         <div class="form-group">
@@ -24,6 +24,7 @@
           <input class="form-control" type="text" formControlName="amount" placeholder="Enter Amount">
         </div>
         <button class="btn btn-secondary" (click)="donate()" id="submit_button">Proceed</button>
+        
         
       </form>
 

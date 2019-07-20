@@ -8,6 +8,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DonationComponent } from './donation/donation.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { ProfileComponent } from './profile/profile.component';
     LandingComponent,
     DonationComponent,
     CatalogComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProductDetailsComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
