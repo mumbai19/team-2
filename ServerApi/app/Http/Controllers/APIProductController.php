@@ -154,4 +154,25 @@ class APIProductController extends Controller
         return new GeneralResources($dataModel);
 	}
 
+	public function edituserprofile(Request $request, $id)
+    {
+    	$dataModel=[];
+        $profile = User::findOrFail($id);
+        $profile ->name = $request->name;
+		$profile ->priviledge= $request->priviledge;
+		$profile ->phoneno= $request->phoneno;
+		$profile ->email_id= $request->email_id;
+        $result=$profile ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Update Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Update Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+    }
+
 }
