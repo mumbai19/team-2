@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CustomizeComponent } from './customize/customize.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,11 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
