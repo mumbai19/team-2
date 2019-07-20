@@ -6,6 +6,7 @@ import { DonationComponent } from './donation/donation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CustomizeComponent } from './customize/customize.component';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
 
 const routes: Routes = [
   {path: 'donations', component: DonationComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
   {path: 'landing', component: LandingComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'customize', component: CustomizeComponent}
+  {path: 'customize', component: CustomizeComponent},
+  {path: 'admin-dash', component: AdminDashComponent}
+
 ];
 
 @NgModule({
