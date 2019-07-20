@@ -14,6 +14,10 @@ class GeneralResources extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'error'=> $this['error'],
+            'message'=> $this['message'],
+            'data'=> $this['data']
+        ];
     }
 }
