@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategory;
 use App\Cause;
-
+use App\Cart;
 use App\CustomProduct;
+use App\Orders;
 use App\Http\Resources\GeneralResources as GeneralResources;
 class APIProductController extends Controller
 {
@@ -177,7 +178,8 @@ class APIProductController extends Controller
     {
     	$tocart = new Cart();
         $tocart ->customer_id = $request->customer_id;
-        $tocart ->product_id= $request->product_id;
+		$tocart ->product_id= $request->product_id;
+		$tocart ->amount=$request->amount;
         $result=$tocart ->save();
         if($result){
         	$dataModel['data'] = $result;
@@ -189,6 +191,31 @@ class APIProductController extends Controller
         	$dataModel['error'] = true;
         }
         return new GeneralResources($dataModel);
+	}
+	
+	public function pay(Request $request){
+        $order = new Orders();
+        $order->product_id = $request->product_id;
+        $order->customer_id = $request->customer_id;
+        $order->quantity = 1;
+        $result=$order->save();
+        $payment = PaytmWallet::with('receive');
+        $payment->prepare([
+        //   'order' => $order->id,
+        //   'user' => $user->id,
+        //   'mobile_number' => $user->phonenumber,
+        //   'email' => $user->email,
+        //   'amount' => $order->amount,
+        //   'callback_url' => 'http://example.com/payment/status'
+          'order' => $result,
+          'user' => $order->customer_id,
+          'mobile_number' => 9323048363,
+          'email' => 'jhaujala3@gmail.com',
+          'amount' => $order->amount,
+          'callback_url' => 'http://localhost/api/payment/status'
+        ]);
+        return $payment->receive();
+        
     }
 
 

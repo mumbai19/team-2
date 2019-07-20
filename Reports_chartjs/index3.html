@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Units Sold in June 2019</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="pie-chart" width="800" height="450"></canvas>
+  </div>
+
+  <script>
+	
+    new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: ["Donations", "Sales"],
+      datasets: [{
+        label: "Revenue (in Rs.)",
+        backgroundColor: ["#3e95cd", "#8e5ea2"],
+        data: [75000,25000]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Share of Donations vs. Sales'
+      }
+    }
+});
+
+  </script>
+</body>
+</html>
+

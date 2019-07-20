@@ -37,6 +37,9 @@ Route::post('placeCustomOrders','APIProductController@placeCustomOrders');
 Route::get('getUserCart/{id}','APIProductController@getUserCart');
 Route::get('getUserProfile/{id}','APIProductController@getUserProfile');
 Route::get('edituserprofile/{id}','APIProductController@edituserprofile');
-Route::post('addtocart','ApiController@addtocart');
+Route::post('addtocart','ApiProductController@addtocart');
 
+Route::post('/payment/status', 'PaymentController@paymentCallback');
+Route::get('/payment', 'PaymentController@order');
+Route::get('/pay', 'PaymentController@order');
 
