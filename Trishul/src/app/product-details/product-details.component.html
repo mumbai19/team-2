@@ -4,11 +4,25 @@
 
     </div>
     <div class="col-md-4">
-      <div class="card">
+      <div class="card text-white bg-dark">
+
+        <div class="card-title">
           {{product.name}} <br>
+
+        </div>
+        <div class="card-body">
           {{product.description}} <br>
-          {{product.color}} <br> 
+          {{product.color}} <br>
           {{product.price}} <br>
+          <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+          <button class="btn btn-success"(click)="buyNow()">Buy Now</button>
+          <br>
+          <br>
+
+          <button class="btn btn-secondary"(click)="buyNow()">Customize</button>
+
+
+        </div>
 
       </div>
     </div>
