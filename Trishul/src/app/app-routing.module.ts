@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CustomizeComponent } from './customize/customize.component';
 
 const routes: Routes = [
+  {path: '', component: LandingComponent},
   {path: 'donations', component: DonationComponent},
   {path: 'product-details', component: ProductDetailsComponent},
   {path: 'landing', component: LandingComponent},
