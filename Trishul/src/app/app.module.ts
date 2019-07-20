@@ -7,13 +7,15 @@ import { LandingComponent } from './landing/landing.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DonationComponent } from './donation/donation.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     DonationComponent,
-    CatalogComponent
+    CatalogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
