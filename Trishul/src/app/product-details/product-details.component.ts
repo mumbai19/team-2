@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StaticService } from '../shared/services/static.service';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,7 @@ import { StaticService } from '../shared/services/static.service';
 export class ProductDetailsComponent implements OnInit {
   private details:any={};
   product = {};
-  constructor(private http: HttpClient, private ss: StaticService) { }
+  constructor(private http: HttpClient, private ss: StaticService,private router: Router, private routerExtensions: RouterModule) { }
 
   ngOnInit() {
     const product_id = this.ss.getProductId();
@@ -29,4 +30,5 @@ export class ProductDetailsComponent implements OnInit {
     this.details.amount=10;
     this.http.post("http://10.49.148.116:8000/api/addtocart",this.details);
   }
+
 }

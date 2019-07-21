@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./customize.component.css'],
   providers: [HttpClient]
 })
+
 export class CustomizeComponent implements OnInit {
   private orderDetails:any={};
   private descrp:string;
@@ -39,7 +40,5 @@ export class CustomizeComponent implements OnInit {
         }
       }
     );
-
   }
-
 }

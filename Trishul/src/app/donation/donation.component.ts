@@ -44,15 +44,11 @@ export class DonationComponent implements OnInit {
  
     this.http.post('http://10.49.148.116:8000/api/submitDonation', details).subscribe(
 
-
     //const obj = {customer_id: 1, cause_id: this.causeId, amount: this.donationForm.value.amount };
     //this.http.post('http://10.49.148.116:8000/api/submitDonation', obj).subscribe(
-
-
       res => {
         console.log(res);
       }
     );
   }
-
 }
