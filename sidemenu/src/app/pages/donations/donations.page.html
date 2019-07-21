@@ -1,23 +1,41 @@
+<ion-header>
+  <ion-toolbar color=primary>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Donations
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-        
-    </div>
+  
     <div class="col-md-4">
       <form [formGroup]="donationForm">
 
-        <p>Choose Cause</p>
-        <div *ngFor="let c of cause, let i=index" class="checkbox">
-          <input type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}}
-          
+        <h1>Choose Cause</h1>
+        <div *ngFor="let c of cause, let i=index" class="checkbox" style="margin: 10px;">
+          <!-- <input type="checkbox" formControlName="cause" (change)="log(i)"> {{c.name}} -->
+          <div class="card" style="margin: 10px;">
+			  <img src="https://enfntsterribles.com/wp-content/uploads/2019/04/EnfntsTerribles-Fancy-Workwear-12-1000x400.jpg" alt="Avatar" style="width:100%">
+			  <div class="container">
+			    <h4><b>{{c.name}}</b></h4> 
+			    <input type="checkbox" formControlName="cause" (change)="log(i)"> 
+		    	<div class="form-group">
+		          <label class="label" for="amount">Amount</label>
+		          
+		          <input class="form-control" type="text" formControlName="amount" placeholder="Enter Amount">
+		        </div>
+		        <a href="http://localhost:8000/api/payment">
+		        <button class="btn btn-primary" (click)="donate()" id="submit_button">Proceed</button></a>
+			    
+			  </div>
+			</div>
         </div>
+        <br><br>
 
-        <div class="form-group">
-          <label class="label" for="amount">Amount</label>
-          
-          <input class="form-control" type="text" formControlName="amount" placeholder="Enter Amount">
-        </div>
-        <button class="btn btn-secondary" (click)="donate()" id="submit_button">Proceed</button>
+        
         
         
       </form>
