@@ -227,7 +227,7 @@ class APIProductController extends Controller
     {
     	$newprod = new Product();
 		$newprod ->name = $request->name;
-		$newprod ->description= $request->decription;
+		$newprod ->description= $request->description;
 		$newprod ->category_id=$request->category_id;
 		$newprod ->price=$request->price;
 		$newprod ->color=$request->color;
