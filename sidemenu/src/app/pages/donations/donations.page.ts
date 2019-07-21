@@ -20,7 +20,7 @@ export class DonationsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://10.49.148.116:8000/api/getCause').subscribe(
+    this.http.get('http://localhost:8000/api/getCause').subscribe(
       res => {
         this.cause = res['data'];
         console.log(this.cause);
@@ -43,7 +43,7 @@ export class DonationsPage implements OnInit {
     details.amount = 100;
     // userDetails.username = data.username;
 
-    this.http.post('http://10.49.148.116:8000/api/submitDonation', details).subscribe(
+    this.http.post('http://localhost:8000/api/submitDonation', details).subscribe(
 
 
       //const obj = {customer_id: 1, cause_id: this.causeId, amount: this.donationForm.value.amount };
