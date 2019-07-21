@@ -225,7 +225,7 @@ class APIProductController extends Controller
 
 	public function addproduct(Request $request)
     {
-    	$newprod = new Cart();
+    	$newprod = new Product();
 		$newprod ->customer_id = $request->name;
 		$newprod ->decription= $request->decription;
 		$newprod ->category_id=$request->category_id;
