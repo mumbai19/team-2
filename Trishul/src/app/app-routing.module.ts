@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CustomizeComponent } from './customize/customize.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'customize', component: CustomizeComponent},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'admin-dash', component: AdminDashComponent}
+  {path: 'admin-dash', component: AdminDashComponent},
+  {path: 'add-product', component: AddProductComponent}
 
 ];
 
