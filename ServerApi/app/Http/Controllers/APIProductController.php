@@ -216,7 +216,33 @@ class APIProductController extends Controller
     //     ]);
     //     return $payment->receive();
         
-    // }
+
+//	}
+	
+
+	// }
+	
+
+	public function addproduct(Request $request)
+    {
+    	$newprod = new Product();
+		$newprod ->name = $request->name;
+		$newprod ->description= $request->description;
+		$newprod ->category_id=$request->category_id;
+		$newprod ->price=$request->price;
+		$newprod ->color=$request->color;
+        $result=$newprod ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Insert Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Insert Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+	}
 
 
 	

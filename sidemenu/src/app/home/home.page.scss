@@ -1,0 +1,35 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.cardouter{
+	margin: 2%;
+	
+	
+}
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	width: 100%;
+
+}
+.card-img-top{
+	height: 50%;
+	width:50%;
+}
+#carouselExampleControls{
+	border: 1px rgba(0, 0, 0, 0.19);
+
+}
+.d-block{
+	height: 200px;
+}
+hr 
+{ 
+	display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0; 
+}
+.btn{
+	background-color: orange
+}

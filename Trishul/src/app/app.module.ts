@@ -31,9 +31,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
