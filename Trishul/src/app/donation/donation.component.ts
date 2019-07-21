@@ -20,7 +20,7 @@ export class DonationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(ip + 'getCause').subscribe(
+    this.http.get('http://localhost:8000/api/getCause').subscribe(
       res => {
         this.cause = res['data'];
         console.log(this.cause);
@@ -55,5 +55,4 @@ export class DonationComponent implements OnInit {
       }
     );
   }
-
 }

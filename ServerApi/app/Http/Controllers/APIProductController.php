@@ -193,30 +193,56 @@ class APIProductController extends Controller
         return new GeneralResources($dataModel);
 	}
 	
-	public function pay(Request $request){
-        $order = new Orders();
-        $order->product_id = $request->product_id;
-        $order->customer_id = $request->customer_id;
-        $order->quantity = 1;
-        $result=$order->save();
-        $payment = PaytmWallet::with('receive');
-        $payment->prepare([
-        //   'order' => $order->id,
-        //   'user' => $user->id,
-        //   'mobile_number' => $user->phonenumber,
-        //   'email' => $user->email,
-        //   'amount' => $order->amount,
-        //   'callback_url' => 'http://example.com/payment/status'
-          'order' => $result,
-          'user' => $order->customer_id,
-          'mobile_number' => 9323048363,
-          'email' => 'jhaujala3@gmail.com',
-          'amount' => $order->amount,
-          'callback_url' => 'http://localhost/api/payment/status'
-        ]);
-        return $payment->receive();
+	// public function pay(Request $request){
+    //     $order = new Orders();
+    //     $order->product_id = $request->product_id;
+    //     $order->customer_id = $request->customer_id;
+    //     $order->quantity = 1;
+    //     $result=$order->save();
+    //     $payment = PaytmWallet::with('receive');
+    //     $payment->prepare([
+    //     //   'order' => $order->id,
+    //     //   'user' => $user->id,
+    //     //   'mobile_number' => $user->phonenumber,
+    //     //   'email' => $user->email,
+    //     //   'amount' => $order->amount,
+    //     //   'callback_url' => 'http://example.com/payment/status'
+    //       'order' => $result,
+    //       'user' => $order->customer_id,
+    //       'mobile_number' => 9323048363,
+    //       'email' => 'jhaujala3@gmail.com',
+    //       'amount' => $order->amount,
+    //       'callback_url' => 'http://payment.com/api/payment/status'
+    //     ]);
+    //     return $payment->receive();
         
-    }
+
+//	}
+	
+
+	// }
+	
+
+	public function addproduct(Request $request)
+    {
+    	$newprod = new Product();
+		$newprod ->name = $request->name;
+		$newprod ->description= $request->description;
+		$newprod ->category_id=$request->category_id;
+		$newprod ->price=$request->price;
+		$newprod ->color=$request->color;
+        $result=$newprod ->save();
+        if($result){
+        	$dataModel['data'] = $result;
+        	$dataModel['message'] = "Insert Successful";
+        	$dataModel['error'] = false;
+        }else{
+        	$dataModel['data'] = 0;
+        	$dataModel['message'] = "Insert Unsuccessful";
+        	$dataModel['error'] = true;
+        }
+        return new GeneralResources($dataModel);
+	}
 
 
 	

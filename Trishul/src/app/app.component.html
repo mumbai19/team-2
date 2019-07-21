@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 <router-outlet></router-outlet>
+
+    <!-- Container for sidebar(s) + page content -->
+    <ng-sidebar-container height:100vh>
+ 
+      <!-- A sidebar -->
+      <ng-sidebar [(opened)]="_opened">
+        <p>Sidebar contents</p>
+      </ng-sidebar>
+ 
+      <!-- Page content -->
+      <div ng-sidebar-content>
+        <button (click)="_toggleSidebar()">Toggle sidebar</button>
+      </div>
+ 
+    </ng-sidebar-container>
+  
+=======
+
+<router-outlet></router-outlet>
+>>>>>>> ef696c369577fb826120b8eec22777abd11d2d45
