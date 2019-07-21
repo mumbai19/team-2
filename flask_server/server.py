@@ -16,6 +16,7 @@ import pickle
 import sys
 from io import StringIO
 from flask_mail import Mail, Message
+# from flask_mysqldb import MySQL
 import os
 
 app = Flask(__name__)
@@ -32,6 +33,13 @@ print(os.environ['EMAIL_USERNAME'], os.environ['EMAIL_PASSWORD'])
 
 app.config.update(mail_settings)
 mail = Mail(app)
+
+# app.config['MYSQL_HOST'] = 'http://192.168.43.58:8080'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = ''
+# app.config['MYSQL_DB'] = 'trishul_db'
+
+# mysql = MySQL(app)
 
 # @app.route('/hello')
 # def hello():
@@ -66,7 +74,7 @@ def getRecommendations():
 
 def getEmails(customer_dict):
     # Get emails of cutomers from DB
-    # age = customer_dict['age']
+    # age=customer_dict['age']
     # if(age==1):
     #     age_min=20
     #     age_max=29
@@ -79,10 +87,17 @@ def getEmails(customer_dict):
     # elif(age==4):
     #     age_min=50
     #     age_max=60
-    # SELECT email from customer WHERE gender=customer_dict['gender'] AND city=customer_dict['city'] AND age BETWEEN age_min AND age_max
-    send_emails([os.environ['EMAIL_USERNAME'].strip('"')])
+    # # SELECT email from customer WHERE gender=customer_dict['gender'] AND city=customer_dict['city'] AND age BETWEEN age_min AND age_max
+    # cur = mysql.connection.cursor()
+    # cur.execute("SELECT email_id from customers WHERE gender="+customer_dict['gender']+" AND city="+customer_dict['city']+" AND age BETWEEN "+age_min+" AND "+age_max)
+    # # mysql.connection.commit()
+    # results = cur.fetchall()
+    # print(results)
+    # cur.close()
+    sendEmails([os.environ['EMAIL_USERNAME'].strip('"')])
 
-def send_emails(email_list_of_users):
+@app.route('/sendEmails', methods=['POST'])
+def sendEmails(email_list_of_users):
     global mail
     msg = Message(subject="Trishul's new product!", recipients=email_list_of_users, body="You will definitely love Trishul's latest launch", html=open('../email_campaign/email_inlined.txt', 'r').read(),sender="trishul@trishul-ngo.org")
     mail.send(msg)
