@@ -1,1 +1,1 @@
-export const ip = 'http://e4a119e0.ngrok.io/api/';
+export const ip = 'http://localhost:8000/api/';
