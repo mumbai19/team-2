@@ -9,6 +9,7 @@ import { StaticService } from '../shared/services/static.service';
   styleUrls: ['./customize.component.css'],
   providers: [HttpClient]
 })
+
 export class CustomizeComponent implements OnInit {
   private orderDetails: any = {};
   private descrp: string;
@@ -41,7 +42,5 @@ export class CustomizeComponent implements OnInit {
         }
       }
     );
-
   }
-
 }

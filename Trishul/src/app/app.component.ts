@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,12 @@ export class AppComponent {
     this._opened = !this._opened;
   }
   title = 'Trishul';
+  @ViewChild('sidenav', { static: true }) public el: any;
+  @HostListener('swiperight', ['$event']) public swipePrev(event: any) {
+    this.el.show();
+
+  
+}
 }
 
 
