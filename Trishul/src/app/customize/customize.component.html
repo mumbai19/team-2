@@ -1,9 +1,24 @@
 <form [formGroup]="customizeForm">
+        <div class="container">
+                <div class="row">
+                        <div class="col-lg-4">
 
-        <div class="form-group">
-                <label class="label" for="descrp">Description</label>
-                
-                <input class="form-control" type="text" formControlName="descrp" placeholder="Enter Description">
-              </div>
-    <button class="btn btn-secondary" (click)="onSubmit()">Submit Customization</button>
+                        </div>
+                        <div class="col-lg-4">
+                                <div class="form-group">
+                                        <label class="label" for="descrp">Description</label>
+
+                                        <input class="form-control" type="text" formControlName="descrp"
+                                                placeholder="Enter Description">
+                                        <br />
+                                        <button class="btn btn-secondary" (click)="onSubmit()">Submit
+                                                Customization</button>
+                                </div>
+                        </div>
+                        <div class="col-lg-4">
+
+                        </div>
+                </div>
+        </div>
+
 </form>
