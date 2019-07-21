@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: 'catalog', component: CatalogComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'customize', component: CustomizeComponent},
-  {path: 'admin-dash', component: AdminDashComponent}
+  {path: 'admin-dash', component: AdminDashComponent},
+
 
 ];
 

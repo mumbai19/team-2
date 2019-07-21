@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StaticService } from '../shared/services/static.service';
 import { Router } from '@angular/router';
+import { ip } from '../shared/ip';
 
 @Component({
   selector: 'app-product-details',
@@ -17,7 +18,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     const product_id = this.ss.getProductId();
-    this.http.get('http://10.49.148.116:8000/api/getProductDetails/' + product_id).subscribe(
+    this.http.get(ip + 'getProductDetails/' + product_id).subscribe(
       res => {
         console.log(res);
         this.product = res['data'];
@@ -28,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   buy() {
-    this.http.post('http://10.49.148.116:8000/api/pay', {}).subscribe(
+    this.http.post(ip + 'pay', {}).subscribe(
       res => {
         console.log(res);
       }
