@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers;
 use PaytmWallet;
 use Illuminate\Http\Request;
@@ -8,6 +7,7 @@ class PaymentController extends Controller
 {
     public function order()
     {
+      // return "hello";
         $payment = PaytmWallet::with('receive');
         $payment->prepare([
         //   'order' => $order->id,
@@ -40,19 +40,8 @@ class PaymentController extends Controller
         
         if($transaction->isSuccessful()){
           //Transaction Successful
-          // if($result){
-            $dataModel['data'] = $result;
-            $dataModel['message'] = "Insert Successful";
-            $dataModel['error'] = false;
-          // }else{
-            
-          // }
-            return new GeneralResources($dataModel);
         }else if($transaction->isFailed()){
-            $dataModel['data'] = 0;
-            $dataModel['message'] = "Insert Unsuccessful";
-            $dataModel['error'] = true;
-            return new GeneralResources($dataModel);
+          //Transaction Failed
         }else if($transaction->isOpen()){
           //Transaction Open/Processing
         }
@@ -60,5 +49,5 @@ class PaymentController extends Controller
         //get important parameters via public methods
         $transaction->getOrderId(); // Get order id
         $transaction->getTransactionId(); // Get transaction id
-    }  
+    }   
 }

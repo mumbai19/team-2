@@ -15,11 +15,27 @@ warnings.filterwarnings('ignore')
 import pickle
 import sys
 from io import StringIO
+from flask_mail import Mail, Message
+import os
 
 app = Flask(__name__)
-@app.route('/hello')
-def hello():
-    return "hello"
+
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": os.environ['EMAIL_USERNAME'],
+    "MAIL_PASSWORD": os.environ['EMAIL_PASSWORD']
+}
+print(os.environ['EMAIL_USERNAME'], os.environ['EMAIL_PASSWORD'])
+
+app.config.update(mail_settings)
+mail = Mail(app)
+
+# @app.route('/hello')
+# def hello():
+#     return "hello"
 @app.route('/getRecommendations', methods=['POST'])
 def getRecommendations():
     price = request.form['price']
@@ -45,4 +61,28 @@ def getRecommendations():
         'gender': str(label_enc_gender.inverse_transform(gender_pred)[0]),
         'city': str(label_enc_city.inverse_transform(city_pred)[0])
     }
+    getEmails(response_dict)
     return jsonify(response_dict)
+
+def getEmails(customer_dict):
+    # Get emails of cutomers from DB
+    # age = customer_dict['age']
+    # if(age==1):
+    #     age_min=20
+    #     age_max=29
+    # elif(age==2):
+    #     age_min=30
+    #     age_max=39
+    # elif(age==3):
+    #     age_min=40
+    #     age_max=49
+    # elif(age==4):
+    #     age_min=50
+    #     age_max=60
+    # SELECT email from customer WHERE gender=customer_dict['gender'] AND city=customer_dict['city'] AND age BETWEEN age_min AND age_max
+    send_emails([os.environ['EMAIL_USERNAME'].strip('"')])
+
+def send_emails(email_list_of_users):
+    global mail
+    msg = Message(subject="Trishul's new product!", recipients=email_list_of_users, body="You will definitely love Trishul's latest launch", html=open('../email_campaign/email_inlined.txt', 'r').read(),sender="trishul@trishul-ngo.org")
+    mail.send(msg)
