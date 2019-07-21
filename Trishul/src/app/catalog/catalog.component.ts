@@ -24,7 +24,7 @@ export class CatalogComponent implements OnInit {
   }
 
   goToProductDetails(i: number) {
-    console.log(i)
+    console.log(i);
     const product_id = this.products[i].product_id;
     this.staticService.setProductId(product_id);
     this.router.navigate(['/product-details']);

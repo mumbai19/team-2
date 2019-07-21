@@ -10,6 +10,7 @@ import { DonationComponent } from './donation/donation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CustomizeComponent } from './customize/customize.component';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CustomizeComponent } from './customize/customize.component';
     ProfileComponent,
     ProductDetailsComponent,
     CatalogComponent,
-    CustomizeComponent
+    CustomizeComponent,
+    AdminDashComponent
   ],
   imports: [
     BrowserModule,

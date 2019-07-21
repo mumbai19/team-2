@@ -10,7 +10,8 @@ import { RouterModule, Routes, Router } from '@angular/router';
   providers: [StaticService]
 })
 export class ProductDetailsComponent implements OnInit {
-  private details:any={};
+  private details: any = {};
+  rendered = false;
   product = {};
   constructor(private http: HttpClient, private ss: StaticService,private router: Router, private routerExtensions: RouterModule) { }
 
@@ -20,15 +21,24 @@ export class ProductDetailsComponent implements OnInit {
       res => {
         console.log(res);
         this.product = res['data'];
+        this.rendered = true;
       }
     );
   }
 
-  addToCart() {
-    this.details.product_id=1;
-    this.details.customer_id=1;
-    this.details.amount=10;
-    this.http.post("http://10.49.148.116:8000/api/addtocart",this.details);
+
+  buy() {
+    this.http.post('http://10.49.148.116:8000/api/pay', {}).subscribe(
+      res => {
+        alert("Bought item.");
+        console.log(res);
+      }
+    );
+  }
+  customize() {
+    this.ss.setProductId(this.product['product_id']);
+    this.router.navigate(['/customize'])
   }
 
 }
+
