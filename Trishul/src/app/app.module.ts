@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CustomizeComponent } from './customize/customize.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
     ProductDetailsComponent,
     CatalogComponent,
     CustomizeComponent,
-    AdminDashComponent
+    AdminDashComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
