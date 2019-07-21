@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StaticService } from '../shared/services/static.service';
 import { Router } from '@angular/router';
+import { ip } from '../shared/ip';
 
 @Component({
   selector: 'app-catalog',
@@ -15,7 +16,7 @@ export class CatalogComponent implements OnInit {
   constructor(private client: HttpClient, private staticService: StaticService, private router: Router) { }
 
   ngOnInit() {
-    this.client.get('http://10.49.148.116:8000/api/getproduct').subscribe(
+    this.client.get(ip + 'getproduct').subscribe(
       output => {
         this.products = output['data'];
         console.log(this.products)

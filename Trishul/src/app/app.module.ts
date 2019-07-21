@@ -11,11 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CustomizeComponent } from './customize/customize.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
-<<<<<<< HEAD
-import { SidebarModule } from 'ng-sidebar';
-=======
 import { AboutUsComponent } from './about-us/about-us.component';
->>>>>>> ef696c369577fb826120b8eec22777abd11d2d45
 
 @NgModule({
   declarations: [
@@ -36,7 +32,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    SidebarModule.forRoot()
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
