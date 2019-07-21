@@ -216,8 +216,8 @@ class APIProductController extends Controller
         ]);
         return $payment->receive();
         
-    }
-
+	}
+	
 
 	
 }
