@@ -15,7 +15,12 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'donations', loadChildren: './pages/donations/donations.module#DonationsPageModule' }
+  { path: 'donations', loadChildren: './pages/donations/donations.module#DonationsPageModule' },
+  { path: 'about', loadChildren: './pages/about/about.module#AboutPageModule' },
+  { path: 'catalog', loadChildren: './pages/catalog/catalog.module#CatalogPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'customize', loadChildren: './pages/customize/customize.module#CustomizePageModule' },
+  { path: 'product-details', loadChildren: './pages/product-details/product-details.module#ProductDetailsPageModule' }
   
 ];
 
