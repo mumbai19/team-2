@@ -28,7 +28,7 @@ export class CustomizeComponent implements OnInit {
 
   onSubmit() {
     console.log(this.customizeForm.value.descrp);
-    this.orderDetails.product_id = 1this.product_id;
+    this.orderDetails.product_id = this.product_id;
     this.orderDetails.customer_id = 1;
     this.orderDetails.amount = 100;
     this.orderDetails.color = "blue";
