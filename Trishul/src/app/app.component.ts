@@ -10,7 +10,5 @@ export class AppComponent {
   @ViewChild('sidenav', { static: true }) public el: any;
   @HostListener('swiperight', ['$event']) public swipePrev(event: any) {
     this.el.show();
-
-  
 }
 }
