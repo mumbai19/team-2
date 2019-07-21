@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ip } from '../shared/ip';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private client: HttpClient) { }
 
   ngOnInit() {
-    this.client.get("http://10.49.148.116:8000/api/getUserProfile/1").subscribe((output) => {
+    this.client.get(ip + "getUserProfile/1").subscribe((output) => {
       this.userDetails = output['data'];
     }
     );
